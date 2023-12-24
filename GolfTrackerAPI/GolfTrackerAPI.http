@@ -1,0 +1,6 @@
+@GolfTrackerAPI_HostAddress = http://localhost:5244
+
+GET {{GolfTrackerAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
