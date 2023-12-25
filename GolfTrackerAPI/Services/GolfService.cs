@@ -18,11 +18,22 @@ namespace GolfTrackerAPI.Services
 
         public async Task<List<Golfers>> GetGolfersAsync()
         {
-            //List<Golfers> golfers = new List<Golfers>();
 
             var golfers = await _golfersCollection.FindAsync(_ => true);
-            //golfers = await _golfersCollection!.Find(_ => true).ToListAsync();
+            
             return await golfers.ToListAsync();
+        }
+
+        public async Task<Golfers> GetGolferAsync(string id)
+        {
+            var golfer = await _golfersCollection.FindAsync(g => g.Id == id);
+
+            return await golfer.FirstOrDefaultAsync();
+        }
+
+        public async Task CreateAsync(Golfers newGolfer)
+        {
+            await _golfersCollection.InsertOneAsync(newGolfer);
         }
     }
 }
