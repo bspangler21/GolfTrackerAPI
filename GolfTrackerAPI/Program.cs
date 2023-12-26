@@ -8,7 +8,10 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<GolferDatabaseSettings>(builder.Configuration.GetSection("GolferDatabase"));
 builder.Services.AddSingleton<GolfService>();
 builder.Services.AddControllers();
-
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+//});
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -27,6 +30,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors(p => p.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+//app.UseCors(p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+//app.UseCors("AllowAll");
 
 app.MapControllers();
 

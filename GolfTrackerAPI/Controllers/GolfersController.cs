@@ -1,6 +1,7 @@
 ﻿using GolfTrackerAPI.Models;
 using GolfTrackerAPI.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GolfTrackerAPI.Controllers
@@ -47,6 +48,8 @@ namespace GolfTrackerAPI.Controllers
 
             return Ok();
         }
+
+       
 
         [HttpDelete("{id:length(24)}")]
         public async Task<IActionResult> Delete(string id)
