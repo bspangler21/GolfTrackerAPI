@@ -35,5 +35,21 @@ namespace GolfTrackerAPI.Services
         {
             await _golfersCollection.InsertOneAsync(newGolfer);
         }
+
+        public async Task UpdateAsync(string id, Golfers updatedGolfer)
+        {
+            FilterDefinition<Golfers> filter = Builders<Golfers>.Filter.Eq(g => g.Id, id);
+            UpdateDefinition<Golfers> update = Builders<Golfers>.Update
+                .Set(g => g.firstName, updatedGolfer.firstName)
+                .Set(g => g.lastName, updatedGolfer.lastName)
+                .Set(g => g.handicap, updatedGolfer.handicap);
+           await _golfersCollection.UpdateOneAsync(filter, update);
+            //await _golfersCollection.UpdateOneAsync(g => g.Id == id, updatedGolfer);
+        }
+
+        public async Task DeleteAsync(string id)
+        {
+            await _golfersCollection.DeleteOneAsync(g => g.Id == id);
+        }
     }
 }
