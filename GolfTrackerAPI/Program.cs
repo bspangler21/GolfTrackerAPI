@@ -7,6 +7,8 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<GolferDatabaseSettings>(builder.Configuration.GetSection("GolferDatabase"));
 builder.Services.AddSingleton<GolfService>();
+builder.Services.Configure<MatchesDatabaseSettings>(builder.Configuration.GetSection("MatchesDatabase"));
+builder.Services.AddSingleton<MatchesService>();
 builder.Services.AddControllers();
 //builder.Services.AddCors(options =>
 //{
