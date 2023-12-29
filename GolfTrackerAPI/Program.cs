@@ -9,6 +9,8 @@ builder.Services.Configure<GolferDatabaseSettings>(builder.Configuration.GetSect
 builder.Services.AddSingleton<GolfService>();
 builder.Services.Configure<MatchesDatabaseSettings>(builder.Configuration.GetSection("MatchesDatabase"));
 builder.Services.AddSingleton<MatchesService>();
+builder.Services.Configure<LeaguesDatabaseSettings>(builder.Configuration.GetSection("LeaguesDatabase"));
+builder.Services.AddSingleton<LeaguesService>();
 builder.Services.AddControllers();
 //builder.Services.AddCors(options =>
 //{
