@@ -13,6 +13,8 @@ builder.Services.Configure<LeaguesDatabaseSettings>(builder.Configuration.GetSec
 builder.Services.AddSingleton<LeaguesService>();
 builder.Services.Configure<CoursesDatabaseSettings>(builder.Configuration.GetSection("CoursesDatabase"));
 builder.Services.AddSingleton<CoursesService>();
+builder.Services.Configure<HolesDatabaseSettings>(builder.Configuration.GetSection("HolesDatabase"));
+builder.Services.AddSingleton<HolesService>();
 builder.Services.AddControllers();
 //builder.Services.AddCors(options =>
 //{
