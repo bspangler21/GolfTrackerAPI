@@ -45,7 +45,6 @@ namespace GolfTrackerAPI.Services
                 .Set(m => m.golfer1Id, updatedMatch.golfer1Id)
                 .Set(m => m.golfer2Id, updatedMatch.golfer2Id);
             await _matchesCollection.UpdateOneAsync(filter, update);
-            //await _matchesCollection.UpdateOneAsync(g => g.Id == id, updatedMatch);
         }
 
         public async Task DeleteAsync(string id)

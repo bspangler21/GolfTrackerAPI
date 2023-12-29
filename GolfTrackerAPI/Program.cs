@@ -11,6 +11,8 @@ builder.Services.Configure<MatchesDatabaseSettings>(builder.Configuration.GetSec
 builder.Services.AddSingleton<MatchesService>();
 builder.Services.Configure<LeaguesDatabaseSettings>(builder.Configuration.GetSection("LeaguesDatabase"));
 builder.Services.AddSingleton<LeaguesService>();
+builder.Services.Configure<CoursesDatabaseSettings>(builder.Configuration.GetSection("CoursesDatabase"));
+builder.Services.AddSingleton<CoursesService>();
 builder.Services.AddControllers();
 //builder.Services.AddCors(options =>
 //{
