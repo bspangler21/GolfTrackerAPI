@@ -15,6 +15,10 @@ builder.Services.Configure<CoursesDatabaseSettings>(builder.Configuration.GetSec
 builder.Services.AddSingleton<CoursesService>();
 builder.Services.Configure<HolesDatabaseSettings>(builder.Configuration.GetSection("HolesDatabase"));
 builder.Services.AddSingleton<HolesService>();
+builder.Services.Configure<DatesDatabaseSettings>(builder.Configuration.GetSection("DatesDatabase"));
+builder.Services.AddSingleton<DatesService>();
+builder.Services.Configure<MatchScoresDatabaseSettings>(builder.Configuration.GetSection("MatchScoresDatabase"));
+builder.Services.AddSingleton<MatchScoresService>();
 builder.Services.AddControllers();
 //builder.Services.AddCors(options =>
 //{
