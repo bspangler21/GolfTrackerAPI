@@ -20,6 +20,6 @@ namespace GolfTrackerAPI.Models
         public int totalScore { get; set; } = 0;
 
         [BsonElement("holeScores")]
-        public string holeScores { get; set; } = null!;
+        public int[] holeScores { get; set; } = null!;
     }
 }
