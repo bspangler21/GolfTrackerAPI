@@ -36,6 +36,12 @@ namespace GolfTrackerAPI.Services
             await _matchScoresCollection.InsertOneAsync(newMatchScore);
         }
 
+        /// <summary>
+        /// Asynchronously updates a match score.
+        /// </summary>
+        /// <param name="id">The ID of the match score to update.</param>
+        /// <param name="updatedMatchScore">The updated match score.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task UpdateAsync(string id, MatchScores updatedMatchScore)
         {
             FilterDefinition<MatchScores> filter = Builders<MatchScores>.Filter.Eq(m => m.Id, id);

@@ -32,6 +32,12 @@ namespace GolfTrackerAPI.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Updates a match score with the specified ID.
+        /// </summary>
+        /// <param name="id">The ID of the match score to update.</param>
+        /// <param name="updatedMatchScore">The updated match score object.</param>
+        /// <returns>An IActionResult representing the result of the update operation.</returns>
         [HttpPut("{id:length(24)}")]
         public async Task<IActionResult> Update(string id, MatchScores updatedMatchScore)
         {
