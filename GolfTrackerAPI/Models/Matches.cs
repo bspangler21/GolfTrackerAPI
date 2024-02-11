@@ -13,8 +13,11 @@ namespace GolfTrackerAPI.Models
         [BsonElement("leagueId")]
         public string leagueId { get; set; } = null!;
 
-        [BsonElement("dateId")]
-        public string dateId { get; set; } = null!;
+        [BsonElement("weekNumber")]
+        public int weekNumber { get; set; } = 0;
+
+        [BsonElement("matchDate")]
+        public DateTime matchDate { get; set; } = DateTime.Now;
 
         [BsonElement("golfer1Id")]
         public string golfer1Id { get; set; } = null!;

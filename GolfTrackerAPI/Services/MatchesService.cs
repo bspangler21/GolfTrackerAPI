@@ -41,7 +41,8 @@ namespace GolfTrackerAPI.Services
             FilterDefinition<Matches> filter = Builders<Matches>.Filter.Eq(m => m.Id, id);
             UpdateDefinition<Matches> update = Builders<Matches>.Update
                 .Set(m => m.leagueId, updatedMatch.leagueId)
-                .Set(m => m.dateId, updatedMatch.dateId)
+                .Set(m => m.weekNumber, updatedMatch.weekNumber)
+                .Set(m => m.matchDate, updatedMatch.matchDate)
                 .Set(m => m.golfer1Id, updatedMatch.golfer1Id)
                 .Set(m => m.golfer2Id, updatedMatch.golfer2Id);
             await _matchesCollection.UpdateOneAsync(filter, update);
