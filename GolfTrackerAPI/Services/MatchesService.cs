@@ -19,8 +19,9 @@ namespace GolfTrackerAPI.Services
         public async Task<List<Matches>> GetMatchesAsync()
         {
 
-            var matches = await _matchesCollection.FindAsync(_ => true);
-            
+            //var matches = await _matchesCollection.FindAsync(_ => true);
+            var matches = await _matchesCollection.FindAsync(m => m.weekNumber != null);
+
             return await matches.ToListAsync();
         }
 
