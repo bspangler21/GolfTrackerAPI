@@ -20,9 +20,9 @@ namespace GolfTrackerAPI.Models
         public DateTime matchDate { get; set; } = DateTime.Now;
 
         [BsonElement("golfer1Id")]
-        public string golfer1Id { get; set; } = null!;
+        public string? golfer1Id { get; set; } = null;
 
         [BsonElement("golfer2Id")]
-        public string golfer2Id { get; set; } = null!;
+        public string? golfer2Id { get; set; } = null;
     }
 }
