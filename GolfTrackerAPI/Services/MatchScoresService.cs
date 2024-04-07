@@ -7,13 +7,15 @@ namespace GolfTrackerAPI.Services
     public class MatchScoresService
     {
         private readonly IMongoCollection<MatchScores> _matchScoresCollection;
+        private readonly GolfService _golfService;
 
-        public MatchScoresService(IOptions<MatchScoresDatabaseSettings> databaseSettings)
+        public MatchScoresService(IOptions<MatchScoresDatabaseSettings> databaseSettings, GolfService golfService)
         {
             var client = new MongoClient(databaseSettings.Value.ConnectionString);
             var database = client.GetDatabase(databaseSettings.Value.DatabaseName);
 
             _matchScoresCollection = database.GetCollection<MatchScores>(databaseSettings.Value.MatchScoresCollectionName);
+            _golfService = golfService;
         }
 
         public async Task<List<MatchScores>> GetMatchScoresAsync()
@@ -22,6 +24,16 @@ namespace GolfTrackerAPI.Services
             var matchScores = await _matchScoresCollection.FindAsync(_ => true);
             
             return await matchScores.ToListAsync();
+        }
+
+        public async Task<List<MatchScores>> GetScoresByGolferIdAsync(string golferId)
+        {
+
+            var golferScores = await _matchScoresCollection.FindAsync(m => m.golferId == golferId);
+            //var notHighest = from score in golferScores.ToList()
+            //                where score.totalScore != int.MaxValue()
+            //                select score;
+            return await golferScores.ToListAsync();
         }
 
         public async Task<MatchScores> GetMatchScoreAsync(string id)

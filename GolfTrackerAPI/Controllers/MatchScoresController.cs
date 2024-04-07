@@ -23,6 +23,11 @@ namespace GolfTrackerAPI.Controllers
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<MatchScores>> Get(string id) => await _matchScoreService.GetMatchScoreAsync(id);
 
+        [HttpGet("golferscores/{golferId:length(24)}")]
+        public async Task<List<MatchScores>> GetScoresByGolferId(string golferId)
+        {
+            return await _matchScoreService.GetScoresByGolferIdAsync(golferId);
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create(MatchScores newMatchScore)
