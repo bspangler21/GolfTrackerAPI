@@ -7,6 +7,18 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<GolferDatabaseSettings>(builder.Configuration.GetSection("GolferDatabase"));
 builder.Services.AddSingleton<GolfService>();
+builder.Services.Configure<MatchesDatabaseSettings>(builder.Configuration.GetSection("MatchesDatabase"));
+builder.Services.AddSingleton<MatchesService>();
+builder.Services.Configure<LeaguesDatabaseSettings>(builder.Configuration.GetSection("LeaguesDatabase"));
+builder.Services.AddSingleton<LeaguesService>();
+builder.Services.Configure<CoursesDatabaseSettings>(builder.Configuration.GetSection("CoursesDatabase"));
+builder.Services.AddSingleton<CoursesService>();
+builder.Services.Configure<HolesDatabaseSettings>(builder.Configuration.GetSection("HolesDatabase"));
+builder.Services.AddSingleton<HolesService>();
+builder.Services.Configure<DatesDatabaseSettings>(builder.Configuration.GetSection("DatesDatabase"));
+builder.Services.AddSingleton<DatesService>();
+builder.Services.Configure<MatchScoresDatabaseSettings>(builder.Configuration.GetSection("MatchScoresDatabase"));
+builder.Services.AddSingleton<MatchScoresService>();
 builder.Services.AddControllers();
 //builder.Services.AddCors(options =>
 //{

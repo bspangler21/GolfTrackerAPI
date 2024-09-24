@@ -10,13 +10,13 @@ namespace GolfTrackerAPI.Models
         [BsonElement("_id")]
         public string? Id { get; set; }
 
-        [BsonElement("FirstName")]
+        [BsonElement("firstName")]
         public string firstName { get; set; } = null!;
 
-        [BsonElement("LastName")]
+        [BsonElement("lastName")]
         public string lastName { get; set; } = null!;
 
-        [BsonElement("Handicap")]
+        [BsonElement("handicap")]
         public int handicap { get; set; } = 0;
 
     }
